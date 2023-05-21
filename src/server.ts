@@ -7,7 +7,7 @@ import cors from '@fastify/cors'
 import jwt from '@fastify/jwt'
 import { memoriesRoutes } from './routes/memories'
 import { uploadRoute } from './routes/upload'
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 
 const app = fastify()
 
@@ -18,7 +18,7 @@ app.register(cors, {
 })
 app.register(require('@fastify/static'), {
   root: resolve(__dirname, '../uploads'),
-  prefix: '/upload',
+  prefix: '/uploads',
 })
 app.register(jwt, {
   secret: 'spacetime',
